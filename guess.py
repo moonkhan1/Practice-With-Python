@@ -24,35 +24,35 @@ input()"""
 
 import random
 
-nomre = random.randint(1,20)
-texmin = 0
-saygac = 0
+num = random.randint(1,20)
+yguess = 0
+count = 0
 
-while texmin != nomre and texmin != "cixis":
-    texmin = input("Aglimda tutdugum reqemi tap(1-20): ")
+while yguess != num and yguess != "exit":
+    yguess = input("Guess my number !(1-20): ")
 
-    if texmin == "cixis":
+    if yguess == "exit":
         break
-    while not type(texmin) == int:
-        if texmin == "cixis":
+    while not type(yguess) == int:
+        if yguess == "exit":
             break
         try:
-            texmin = int(texmin)
+            yguess = int(yguess)
         except ValueError:
-            texmin = input("Reqem daxil et(1-20): ")
+            yguess = input("Insert number(1-20): ")
 
-        texmin = int(texmin)
-        saygac += 1
+        yguess = int(yguess)
+        count += 1
 
-        if texmin < nomre:
-            print("Texmininiz kicikdir")
-        elif texmin > nomre:
-            print("Texmininiz boyukdur")
+        if yguess < num:
+            print("Your guess is low")
+        elif yguess > num:
+            print("Your guess is high")
         else:
-            tekrar = input(f"Siz {saygac} qeder texmin etdiniz ve menim tutdugum {nomre} reqemin tapdiniz. Yeniden ceh etmek isdeyirsiz? H/Y")
-            if tekrar == "y" or tekrar == "cixis":
+            again = input(f" Guess count:  {count}. My number was {num} and guessed it!. Do you want to try again ? Y/N")
+            if again == "N" or again == "exit":
                 break
-            if tekrar == "h":
-                texmin = 0
-                saygac = 0
-                nomre = random.randint(1,20)
+            if again == "Y":
+                yguess = 0
+                count = 0
+                num = random.randint(1,20)
